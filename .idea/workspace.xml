@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040a08a-d387-4635-92f8-079d96e3511a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -92,8 +91,8 @@
       <file leaf-file-name="LogParserTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="234" column="46" lean-forward="true" selection-start-line="234" selection-start-column="46" selection-end-line="234" selection-end-column="46" />
+            <state relative-caret-position="-791">
+              <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/shared/enums/VariableType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1181,9 +1180,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LogParserTest - 2017.04.30 at 22h 18m 01s.xml">
-      <configuration name="LogParserTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LogParserTest - 2017.04.30 at 22h 18m 21s.xml">
       <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
@@ -1211,12 +1207,16 @@
     <history-entry file="LogParserTest - 2017.04.30 at 22h 30m 56s.xml">
       <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="LogParserTest - 2017.04.30 at 22h 32m 26s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32973000" />
+    <option name="totallyTimeSpent" value="33053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1533,7 +1533,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/shared/enums/VariableType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1595,8 +1595,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="234" column="46" lean-forward="true" selection-start-line="234" selection-start-column="46" selection-end-line="234" selection-end-column="46" />
+        <state relative-caret-position="-791">
+          <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

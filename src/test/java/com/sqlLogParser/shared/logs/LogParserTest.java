@@ -19,6 +19,26 @@ public class LogParserTest
 {
 
     @Test
+    public void parseQuery() throws Exception
+    {
+        Log log;
+        String logBody;
+        String expected;
+        String actual;
+
+
+        logBody = "290062  TRACE  [btpool0-0] kodo.jdbc.SQL - <t 10272075, conn 18292272> [28 ms] executing prepstmnt 29574501 SELECT t0.A FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = ? [params=(long) 1300053803]";
+        expected = "SELECT t0.A FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = 1300053803";
+        actual = LogParser.parseQuery(new Log(0, logBody));
+
+        logBody = "290000 TRACE [btpool0-0] kodo.jdbc.SQL - [30 ms] executing prepstmnt 25221994 SELECT t0.ID, t0.NUMBER_RANGE_TYPE, t0.LAST_UPDATE, t0.C, t0.CREATED_BY, t0.CREATED_ON, t0.D, t0.IDENTIFIER_PERSISTENT, t0.LAST_MODIFIED_BY, t0.LAST_MODIFIED_ON, t0.M, t0.P, t0.Q, t0.S, t0.SECONDARY_DESTINATION_NUM, t0.U, t0.A, t0.B, t0.DESCRIPTION, t0.DESCENT_NUM, t0.IDENTIFIER_AB_PERSISTENT, t0.IS_MOVED, t0.NUMBERING_STATUS FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE (LOWER(t0.A) = ? AND LOWER(t0.B) = ? AND LOWER(t0.S) = ? AND LOWER(t0.P) = ? AND LOWER(t0.Q) = ? AND t0.ID <> ?) AND t0.NUMBER_RANGE_TYPE = ? [params=(String) 1, (String) 5, (String) 8, (String) 7, (String) 6, (long) 1300053803, (int) 2]";
+        expected = "SELECT t0.ID, t0.NUMBER_RANGE_TYPE, t0.LAST_UPDATE, t0.C, t0.CREATED_BY, t0.CREATED_ON, t0.D, t0.IDENTIFIER_PERSISTENT, t0.LAST_MODIFIED_BY, t0.LAST_MODIFIED_ON, t0.M, t0.P, t0.Q, t0.S, t0.SECONDARY_DESTINATION_NUM, t0.U, t0.A, t0.B, t0.DESCRIPTION, t0.DESCENT_NUM, t0.IDENTIFIER_AB_PERSISTENT, t0.IS_MOVED, t0.NUMBERING_STATUS FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE (LOWER(t0.A) = '1' AND LOWER(t0.B) = '5' AND LOWER(t0.S) = '8' AND LOWER(t0.P) = '7' AND LOWER(t0.Q) = '6' AND t0.ID <> 1300053803) AND t0.NUMBER_RANGE_TYPE = 2";
+        actual = LogParser.parseQuery(new Log(0, logBody));
+
+        Assert.assertEquals(expected, actual);
+    }
+    
+    @Test
     public void getParamValuesFrom() throws Exception
     {
         Log log;
@@ -215,24 +235,5 @@ public class LogParserTest
 
     }
 
-    @Test
-    public void parseQuery() throws Exception
-    {
-        Log log;
-        String logBody;
-        String expected;
-        String actual;
-
-
-        logBody = "290062  TRACE  [btpool0-0] kodo.jdbc.SQL - <t 10272075, conn 18292272> [28 ms] executing prepstmnt 29574501 SELECT t0.A FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = ? [params=(long) 1300053803]";
-        expected = "SELECT t0.A FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = 1300053803";
-        actual = LogParser.parseQuery(new Log(0, logBody));
-
-        logBody = "290000 TRACE [btpool0-0] kodo.jdbc.SQL - [30 ms] executing prepstmnt 25221994 SELECT t0.ID, t0.NUMBER_RANGE_TYPE, t0.LAST_UPDATE, t0.C, t0.CREATED_BY, t0.CREATED_ON, t0.D, t0.IDENTIFIER_PERSISTENT, t0.LAST_MODIFIED_BY, t0.LAST_MODIFIED_ON, t0.M, t0.P, t0.Q, t0.S, t0.SECONDARY_DESTINATION_NUM, t0.U, t0.A, t0.B, t0.DESCRIPTION, t0.DESCENT_NUM, t0.IDENTIFIER_AB_PERSISTENT, t0.IS_MOVED, t0.NUMBERING_STATUS FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE (LOWER(t0.A) = ? AND LOWER(t0.B) = ? AND LOWER(t0.S) = ? AND LOWER(t0.P) = ? AND LOWER(t0.Q) = ? AND t0.ID <> ?) AND t0.NUMBER_RANGE_TYPE = ? [params=(String) 1, (String) 5, (String) 8, (String) 7, (String) 6, (long) 1300053803, (int) 2]";
-        expected = "SELECT t0.ID, t0.NUMBER_RANGE_TYPE, t0.LAST_UPDATE, t0.C, t0.CREATED_BY, t0.CREATED_ON, t0.D, t0.IDENTIFIER_PERSISTENT, t0.LAST_MODIFIED_BY, t0.LAST_MODIFIED_ON, t0.M, t0.P, t0.Q, t0.S, t0.SECONDARY_DESTINATION_NUM, t0.U, t0.A, t0.B, t0.DESCRIPTION, t0.DESCENT_NUM, t0.IDENTIFIER_AB_PERSISTENT, t0.IS_MOVED, t0.NUMBERING_STATUS FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE (LOWER(t0.A) = '1' AND LOWER(t0.B) = '5' AND LOWER(t0.S) = '8' AND LOWER(t0.P) = '7' AND LOWER(t0.Q) = '6' AND t0.ID <> 1300053803) AND t0.NUMBER_RANGE_TYPE = 2";
-        actual = LogParser.parseQuery(new Log(0, logBody));
-
-        Assert.assertEquals(expected, actual);
-    }
 
 }
