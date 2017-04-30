@@ -12,7 +12,7 @@ import com.google.gwt.view.client.SingleSelectionModel;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderService;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderServiceAsync;
 import com.sqlLogParser.shared.logs.Log;
-import com.sqlLogParser.shared.logs.LogParser;
+import com.sqlLogParser.server.rpc.logs.LogParser;
 
 import java.util.List;
 import java.util.logging.Logger;

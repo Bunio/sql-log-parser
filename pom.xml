@@ -20,6 +20,11 @@
             <artifactId>jetty-server</artifactId>
             <version>9.4.4.v20170414</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+        </dependency>
 
     </dependencies>
 
