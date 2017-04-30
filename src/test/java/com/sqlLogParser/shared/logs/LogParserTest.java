@@ -101,18 +101,37 @@ public class LogParserTest
         );
     }
 
-
-    /*Test
-    public void parseLog() throws Exception
+    @Test
+    public void trimToQuery() throws Exception
     {
 
-        Log log = new Log(
-                0,
-                "289968  TRACE  [btpool0-0] kodo.jdbc.SQL - <t 10272075, conn 18292272> [29 ms] executing prepstmnt 11854753 SELECT t0.NUMBER_RANGE_TYPE, t0.LAST_UPDATE FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = ? [params=(long) 1300053803]");
+        String log;
+        String expected;
+        String actual;
 
-        Assert.assertEquals(
-                "SELECT t0.NUMBER_RANGE_TYPE, t0.LAST_UPDATE FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = '1300053803'",
-                LogParser.parseLog(log));
-    }*/
+
+        log = "bla bla bla DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]";
+        expected = "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]";
+        actual = LogParser.trimToQuery(log);
+        Assert.assertEquals(expected, actual);
+
+
+        log = "290062  TRACE  [btpool0-0] kodo.jdbc.SQL - <t 10272075, conn 18292272> [28 ms] executing prepstmnt 29574501 SELECT t0.A FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = ? [params=(long) 1300053803]";
+        expected = "SELECT t0.A FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = ? [params=(long) 1300053803]";
+        actual = LogParser.trimToQuery(log);
+        Assert.assertEquals(expected, actual);
+
+        log = "293698  TRACE  [btpool0-0] kodo.jdbc.SQL - <t 10272075, conn 18292272> [0 ms] batching prepstmnt 6104070 UPDATE TESTSOFT.TB_SERVICES SET NUMBER_ID = ? WHERE NUMBER_ID = ? [params=(null) null, (long) 1328126939]";
+        expected = "UPDATE TESTSOFT.TB_SERVICES SET NUMBER_ID = ? WHERE NUMBER_ID = ? [params=(null) null, (long) 1328126939]";
+        actual = LogParser.trimToQuery(log);
+        Assert.assertEquals(expected, actual);
+
+        log = "Random text 13123123";
+        expected = "Random text 13123123";
+        actual = LogParser.trimToQuery(log);
+        Assert.assertEquals(expected, actual);
+
+    }
+    
 
 }

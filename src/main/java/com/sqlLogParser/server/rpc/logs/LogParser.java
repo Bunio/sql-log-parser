@@ -16,25 +16,28 @@ public class LogParser
 
     public static String parseQuery(Log log)
     {
-        //TO DO
 
         String query = log.getContent();
 
         // Remove everything before SELECT/UPDATE ETC
 
         // Get param list
-
         List<String> params = getParamsFrom(log);
 
         // Remove params
+        query = cutParamsFrom(query);
 
         // Replace question marks with params
-
         query = replacePlaceholdersWithParams(query, params);
 
         // Return
 
         return "TODO";
+    }
+
+    public static String trimToQuery(String log)
+    {
+        return log.replaceFirst(".*\\s+(?=DELETE |UPDATE |SELECT |INSERT )", "");
     }
 
     public static List<String> getParamsFrom(Log log)
@@ -57,7 +60,6 @@ public class LogParser
 
     public static String replacePlaceholdersWithParams(String log, List<String> params)
     {
-
         for(String param : params)
         {
             log = log.replaceFirst("\\?", "'" + param + "'");

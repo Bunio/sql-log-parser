@@ -32,12 +32,12 @@
       <file leaf-file-name="LogParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="52" column="38" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="38" />
+            <state relative-caret-position="322">
+              <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1364#1365#0" expanded="true" />
-                <element signature="e#1426#1427#0" expanded="true" />
+                <element signature="e#1528#1529#0" expanded="true" />
+                <element signature="e#1590#1591#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -46,8 +46,8 @@
       <file leaf-file-name="LogParserTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+            <state relative-caret-position="1005">
+              <caret line="134" column="4" lean-forward="false" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,8 +100,8 @@
       <file leaf-file-name="logFile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/war/logFile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="207" />
+            <state relative-caret-position="306">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="210" />
               <folding />
             </state>
           </provider>
@@ -573,7 +573,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in sql-log-parser">
+  <component name="RunManager" selected="JUnit.LogParserTest">
     <configuration default="false" name="All in sql-log-parser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="sql-log-parser" />
@@ -1063,9 +1063,9 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in sql-log-parser" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.com in sql-log-parser" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.LogParserTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.LogParserTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in sql-log-parser" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.com in sql-log-parser" />
       </list>
     </recent_temporary>
   </component>
@@ -1084,44 +1084,44 @@
       <workItem from="1493547284450" duration="4307000" />
       <workItem from="1493552618131" duration="590000" />
       <workItem from="1493553224052" duration="9475000" />
-      <workItem from="1493564637937" duration="9359000" />
+      <workItem from="1493564637937" duration="11480000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 02m 15s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 20m 40s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 29m 54s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 20m 55s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 32m 34s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 21m 15s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 33m 14s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 21m 49s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 41m 37s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 22m 16s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 42m 38s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 22m 22s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 44m 06s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 22m 32s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 45m 50s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 22m 57s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 53m 43s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 28m 09s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 54m 17s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 29m 25s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25080000" />
+    <option name="totallyTimeSpent" value="27201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1459,14 +1459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/war/logFile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="207" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/war/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1487,20 +1479,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="52" column="38" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="38" />
+        <state relative-caret-position="322">
+          <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1364#1365#0" expanded="true" />
-            <element signature="e#1426#1427#0" expanded="true" />
+            <element signature="e#1528#1529#0" expanded="true" />
+            <element signature="e#1590#1591#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/war/logFile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="210" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state relative-caret-position="1005">
+          <caret line="134" column="4" lean-forward="false" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
