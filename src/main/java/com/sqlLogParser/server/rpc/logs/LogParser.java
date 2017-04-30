@@ -1,5 +1,10 @@
-package com.sqlLogParser.shared.logs;
+package com.sqlLogParser.server.rpc.logs;
 
+import com.sqlLogParser.shared.logs.Log;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,8 +26,28 @@ public class LogParser
         return resoult;
     }
 
+    public static List<String> getParamsFrom(Log log)
+    {
+        String params = log.getContent()
+                .replaceFirst("(.*)params=", "")
+                .replaceAll("\\[", "")
+                .replaceAll("]", "")
+                .replaceAll("\\(.*?\\)", "")
+                .replaceAll("\\s+", "")
+                .trim();
+
+        return Arrays.asList(params.split(","));
+    }
+
+    public static String replacePlaceholdersWithParams(List<String> params)
+    {
+        return "lol";
+    }
+
     private static String cutLog(String resoult)
     {
         return resoult.replaceFirst("(.*)SELECT","SELECT");
     }
+
+
 }
