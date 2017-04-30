@@ -1,4 +1,4 @@
-package com.sqlLogParser.client;
+package com.sqlLogParser.client.rpc;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
