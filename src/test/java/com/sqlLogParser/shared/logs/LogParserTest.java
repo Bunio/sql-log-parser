@@ -46,6 +46,40 @@ public class LogParserTest
 
     }
 
+
+    @Test
+    public void getParamTypesFrom() throws Exception
+    {
+        Log log;
+        String logBody;
+        List<String> paramTypesExpected;
+        List<String> paramTypesActual;
+
+
+        logBody = "289968  TRACE  [btpool0-0] kodo.jdbc.SQL blablabla ? [params=(long) 1300053803]";
+        paramTypesExpected = Arrays.asList("long");
+        paramTypesActual = LogParser.getParamTypesFrom(new Log(0, logBody));
+
+        Assert.assertNotNull(paramTypesActual);
+        Assert.assertEquals("long", paramTypesActual.get(0));
+        Assert.assertTrue(paramTypesExpected.size() == paramTypesActual.size());
+        Assert.assertTrue(paramTypesExpected.containsAll(paramTypesActual));
+
+
+        logBody = "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]";
+        paramTypesExpected = Arrays.asList("long", "int");
+        paramTypesActual = LogParser.getParamTypesFrom(new Log(0, logBody));
+
+        Assert.assertNotNull(paramTypesActual);
+        Assert.assertEquals("long", paramTypesActual.get(0));
+        Assert.assertEquals("int", paramTypesActual.get(1));
+        Assert.assertTrue(paramTypesExpected.size() == paramTypesActual.size());
+        Assert.assertTrue(paramTypesExpected.containsAll(paramTypesActual));
+
+    }
+
+
+
     @Test
     public void cutParamsFrom() throws Exception
     {
