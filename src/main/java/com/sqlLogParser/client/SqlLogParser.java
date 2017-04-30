@@ -12,7 +12,6 @@ import com.google.gwt.view.client.SingleSelectionModel;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderService;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderServiceAsync;
 import com.sqlLogParser.shared.logs.Log;
-import com.sqlLogParser.server.rpc.logs.LogParser;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -23,30 +22,68 @@ public class SqlLogParser implements EntryPoint {
     private static Logger logger = Logger.getLogger("FILE READER");
 
     private Log selectedLog;
-    private TextBox filenameTf;
-    private Button loadFileBt;
+    private TextBox fileNameTextBox;
+    private Button loadFileButton;
+    private Button parseLogButton;
+    private CellTable<Log> logTable;
+    private VerticalPanel menuPanel;
+    private VerticalPanel logPanel;
 
 
     public void onModuleLoad()
     {
+        createMenu();
+
+    }
+
+    private void createMenu()
+    {
+        addMenuPanel();
+        addLogPanel();
         addTextfields();
         addButtons();
     }
 
+    private void addMenuPanel()
+    {
+        menuPanel = new VerticalPanel();
+        menuPanel.setWidth("100%");
+        menuPanel.setSpacing(10);
+        menuPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+
+        RootPanel.get().add(menuPanel);
+    }
+
+    private void addLogPanel()
+    {
+        logPanel = new VerticalPanel();
+        logPanel.setWidth("100%");
+        logPanel.setBorderWidth(1);
+
+        RootPanel.get().add(logPanel);
+    }
+
+
     private void addTextfields()
     {
-        filenameTf = new TextBox();
-        RootPanel.get("slot1").add(filenameTf);
+        fileNameTextBox = new TextBox();
+        menuPanel.add(fileNameTextBox);
     }
 
     private void addButtons()
     {
-        loadFileBt = new Button("load file");
+        loadFileButton = new Button("Load file");
+        parseLogButton = new Button("Parse");
 
-        loadFileBt.addClickHandler(e ->
+        parseLogButton.addClickHandler(e ->
+        {
+           displayParsedLog();
+        });
+
+        loadFileButton.addClickHandler(e ->
         {
             FileReaderServiceAsync fileReader = GWT.create(FileReaderService.class);
-            fileReader.getLogsFromFile(filenameTf.getText(), new AsyncCallback<List<Log>>()
+            fileReader.getLogsFromFile(fileNameTextBox.getText(), new AsyncCallback<List<Log>>()
             {
                 @Override
                 public void onFailure(Throwable throwable)
@@ -57,19 +94,34 @@ public class SqlLogParser implements EntryPoint {
                 @Override
                 public void onSuccess(List<Log> logs)
                 {
-                    displayLogTable(logs);
+                    if(logs.size() > 0)
+                    {
+                        displayLogTable(logs);
+                    }
+                    else
+                    {
+                        Window.alert("I could not load any logs. Wrong file perhaps?");
+                    }
+
                 }
             });
 
         });
 
-        RootPanel.get("slot2").add(loadFileBt);
+        menuPanel.add(loadFileButton);
+        menuPanel.add(parseLogButton);
     }
 
     public void displayLogTable(List<Log> logs)
     {
-        CellTable<Log> cellTable = new CellTable<>();
-        cellTable.setKeyboardSelectionPolicy(HasKeyboardSelectionPolicy.KeyboardSelectionPolicy.ENABLED);
+
+        if(logTable != null && logPanel.getWidgetIndex(logTable) >= 0)
+        {
+            logPanel.remove(logTable);
+        }
+
+        logTable = new CellTable<>();
+        logTable.setKeyboardSelectionPolicy(HasKeyboardSelectionPolicy.KeyboardSelectionPolicy.ENABLED);
 
         TextColumn<Log> indexColumn = new TextColumn<Log>() {
             @Override
@@ -85,49 +137,48 @@ public class SqlLogParser implements EntryPoint {
             }
         };
 
-        cellTable.addColumn(indexColumn, "id");
-        cellTable.addColumn(logColumn, "log");
+        logTable.addColumn(indexColumn, "id");
+        logTable.addColumn(logColumn, "log");
 
         SingleSelectionModel<Log> selectionModel = new SingleSelectionModel<>();
-        cellTable.setSelectionModel(selectionModel);
+        logTable.setSelectionModel(selectionModel);
 
         selectionModel.addSelectionChangeHandler(e ->
-        {
-            selectedLog = selectionModel.getSelectedObject();
+                selectedLog = selectionModel.getSelectedObject()
+        );
 
-            if(selectedLog != null)
-            {
-                displayParsedLog(selectedLog);
-            }
+        logTable.setRowCount(logs.size());
+        logTable.setRowData(logs);
 
-        });
-
-        cellTable.setRowCount(logs.size());
-        cellTable.setRowData(logs);
-
-        VerticalPanel panel = new VerticalPanel();
-        panel.setBorderWidth(1);
-        panel.setWidth("100%");
-        panel.add(cellTable);
-
-        RootPanel.get().add(panel);
+        logPanel.add(logTable);
     }
 
-    private void displayParsedLog(Log selectedLog)
+    private void displayParsedLog()
     {
-        FileReaderServiceAsync fileReader = GWT.create(FileReaderService.class);
-        fileReader.parseLog(selectedLog, new AsyncCallback<String>() {
-            @Override
-            public void onFailure(Throwable throwable) {
-                Window.alert("COULD NOT PARSE THIS LOG");
-            }
 
-            @Override
-            public void onSuccess(String s)
-            {
-                Window.alert(s);
-            }
-        });
+        if(selectedLog == null)
+        {
+            Window.alert("No log selected!");
+        }
+
+        else
+        {
+            FileReaderServiceAsync fileReader = GWT.create(FileReaderService.class);
+            fileReader.parseLog(selectedLog, new AsyncCallback<String>() {
+                @Override
+                public void onFailure(Throwable throwable) {
+                    Window.alert("COULD NOT PARSE THIS LOG");
+                }
+
+                @Override
+                public void onSuccess(String s)
+                {
+
+                    Window.alert(s);
+                }
+            });
+        }
+
     }
 
 }
