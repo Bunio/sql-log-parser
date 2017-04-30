@@ -37,7 +37,7 @@ public class LogParserTest
 
         Assert.assertEquals(expected, actual);
     }
-    
+
     @Test
     public void getParamValuesFrom() throws Exception
     {
