@@ -8,12 +8,12 @@
     <servlet>
         <servlet-name>myServiceImpl</servlet-name>
         <servlet-class>
-            com.mySampleApplication.server.rpc.MyServiceImpl
+            com.sqlLogParser.server.rpc.MyServiceImpl
         </servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>myServiceImpl</servlet-name>
-        <url-pattern>/MySampleApplication/MyService</url-pattern>
+        <url-pattern>/SqlLogParser/MyService</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -1,7 +1,7 @@
-package com.mySampleApplication.server.rpc;
+package com.sqlLogParser.server.rpc;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
-import com.mySampleApplication.client.MyService;
+import com.sqlLogParser.client.MyService;
 
 /**
  * Created by Jakub on 30.04.2017.

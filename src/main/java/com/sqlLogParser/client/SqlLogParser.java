@@ -1,4 +1,4 @@
-package com.mySampleApplication.client;
+package com.sqlLogParser.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -42,10 +42,6 @@ public class SqlLogParser implements EntryPoint {
 
 
         });
-
-
-
-
 
         RootPanel.get("slot1").add(filenameTf);
         RootPanel.get("slot2").add(loadFileBt);
