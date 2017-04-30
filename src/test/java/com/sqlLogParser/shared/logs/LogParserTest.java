@@ -105,6 +105,25 @@ public class LogParserTest
     }
 
     @Test
+    public void parseQuery() throws Exception
+    {
+        Log log;
+        String logBody;
+        String expected;
+        String actual;
+
+
+        logBody = "290062  TRACE  [btpool0-0] kodo.jdbc.SQL - <t 10272075, conn 18292272> [28 ms] executing prepstmnt 29574501 SELECT t0.A FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = ? [params=(long) 1300053803]";
+        expected = "SELECT t0.A FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = '1300053803'";
+        actual = LogParser.parseQuery(new Log(0, logBody));
+
+        Assert.assertEquals(expected, actual);
+
+
+
+    }
+
+    @Test
     public void replacePlaceholdersWithParams() throws Exception
     {
         Log log1 = new Log(

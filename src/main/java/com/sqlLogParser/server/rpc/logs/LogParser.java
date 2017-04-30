@@ -19,10 +19,11 @@ public class LogParser
 
         String query = log.getContent();
 
-        // Remove everything before SELECT/UPDATE ETC
-
         // Get param list
         List<String> params = getParamsFrom(log);
+
+        // Remove everything before SELECT/UPDATE ETC
+        query = trimToQuery(query);
 
         // Remove params
         query = cutParamsFrom(query);
@@ -30,9 +31,7 @@ public class LogParser
         // Replace question marks with params
         query = replacePlaceholdersWithParams(query, params);
 
-        // Return
-
-        return "TODO";
+        return query.trim();
     }
 
     public static String trimToQuery(String log)
