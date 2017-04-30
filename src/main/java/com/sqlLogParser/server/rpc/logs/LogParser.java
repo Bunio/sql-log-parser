@@ -2,10 +2,8 @@ package com.sqlLogParser.server.rpc.logs;
 
 import com.sqlLogParser.shared.logs.Log;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -21,7 +19,7 @@ public class LogParser
 
         String resoult = log.getContent();
 
-        resoult = cutLog(resoult);
+        resoult = getQueryFromLog(resoult);
 
         return resoult;
     }
@@ -44,9 +42,9 @@ public class LogParser
         return "lol";
     }
 
-    private static String cutLog(String resoult)
+    private static String getQueryFromLog(Log log)
     {
-        return resoult.replaceFirst("(.*)SELECT","SELECT");
+        return log.getContent().replaceFirst("(.*)SELECT","SELECT");
     }
 
 
