@@ -33,6 +33,19 @@ public class FileReaderImpl extends RemoteServiceServlet implements FileReaderSe
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader(path));
+            Long id = 0L;
+
+            String line = reader.readLine();
+
+
+            while(line != null)
+            {
+                logs.add(new Log(id, line));
+
+                id++;
+                line = reader.readLine();
+            }
+
         }
 
         catch (FileNotFoundException ex)
@@ -48,6 +61,7 @@ public class FileReaderImpl extends RemoteServiceServlet implements FileReaderSe
 
 
         logger.log(Level.INFO, " Done !");
+        logger.log(Level.INFO, " Total logs: " + logs.size());
 
         return logs;
     }
