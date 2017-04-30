@@ -52,7 +52,7 @@ public class LogParser
 
     public static String cutParamsFrom(String log)
     {
-        return  "";
+        return  log.replaceFirst("\\[params=(.*)", "");
     }
 
     public static String replacePlaceholdersWithParams(String log, List<String> params)

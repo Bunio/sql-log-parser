@@ -77,6 +77,29 @@ public class LogParserTest
 
     }
 
+    @Test
+    public void cutParamsFrom() throws Exception
+    {
+        Log log1 = new Log(
+                0,
+                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]"
+        );
+
+        Assert.assertEquals(
+                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? ",
+                LogParser.cutParamsFrom(log1.getContent())
+        );
+
+        Log log2 = new Log(
+                0,
+                " ? [params=(long) 1300053803]"
+        );
+
+        Assert.assertEquals(
+                " ? ",
+                LogParser.cutParamsFrom(log2.getContent())
+        );
+    }
 
 
     /*Test

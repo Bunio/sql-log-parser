@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040a08a-d387-4635-92f8-079d96e3511a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/client/SqlLogParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/client/SqlLogParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java" />
     </list>
@@ -33,12 +32,12 @@
       <file leaf-file-name="LogParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="62" column="38" lean-forward="false" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+            <state relative-caret-position="425">
+              <caret line="52" column="38" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1364#1365#0" expanded="true" />
-                <element signature="e#1390#1391#0" expanded="true" />
+                <element signature="e#1426#1427#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,8 +46,8 @@
       <file leaf-file-name="LogParserTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-171">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="496">
+              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -181,8 +180,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/fileReader/FileReaderServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sqlLogParser/shared/logs/LogParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sqlLogParser/client/SqlLogParser.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java" />
       </list>
     </option>
   </component>
@@ -1085,17 +1084,11 @@
       <workItem from="1493547284450" duration="4307000" />
       <workItem from="1493552618131" duration="590000" />
       <workItem from="1493553224052" duration="9475000" />
-      <workItem from="1493564637937" duration="8855000" />
+      <workItem from="1493564637937" duration="9359000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 01m 02s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 01m 58s.xml">
-      <configuration name="All in sql-log-parser" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 02m 15s.xml">
       <configuration name="All in sql-log-parser" configurationId="JUnit" />
     </history-entry>
@@ -1120,9 +1113,15 @@
     <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 45m 50s.xml">
       <configuration name="All in sql-log-parser" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 53m 43s.xml">
+      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_sql-log-parser - 2017.04.30 at 19h 54m 17s.xml">
+      <configuration name="All in sql-log-parser" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24576000" />
+    <option name="totallyTimeSpent" value="25080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1137,7 +1136,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29411766" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29411766" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2497309" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1488,20 +1487,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="62" column="38" lean-forward="false" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+        <state relative-caret-position="425">
+          <caret line="52" column="38" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1364#1365#0" expanded="true" />
-            <element signature="e#1390#1391#0" expanded="true" />
+            <element signature="e#1426#1427#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-171">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="496">
+          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
