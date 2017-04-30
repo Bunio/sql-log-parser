@@ -14,7 +14,15 @@ public class LogParser
     public static String parseLog(Log log)
     {
 
-        logger.log(Level.INFO, "Parsing log of id: " + Long.toString(log.getId()));
-        return log.getContent();
+        String resoult = log.getContent();
+
+        resoult = cutLog(resoult);
+
+        return resoult;
+    }
+
+    private static String cutLog(String resoult)
+    {
+        return resoult.replaceFirst("(.*)SELECT","SELECT");
     }
 }
