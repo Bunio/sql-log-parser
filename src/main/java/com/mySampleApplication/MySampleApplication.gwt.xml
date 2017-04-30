@@ -8,5 +8,4 @@
     <!-- Specify the app entry point class.                   -->
     <entry-point class='com.mySampleApplication.client.SqlLogParser'/>
 
-
 </module>

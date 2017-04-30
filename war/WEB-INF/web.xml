@@ -4,4 +4,16 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+
+    <servlet>
+        <servlet-name>myServiceImpl</servlet-name>
+        <servlet-class>
+            com.mySampleApplication.server.rpc.MyServiceImpl
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myServiceImpl</servlet-name>
+        <url-pattern>/MySampleApplication/MyService</url-pattern>
+    </servlet-mapping>
+
 </web-app>
