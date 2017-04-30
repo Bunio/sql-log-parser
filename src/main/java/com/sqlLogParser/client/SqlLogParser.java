@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.*;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderService;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderServiceAsync;
+import com.sqlLogParser.client.widgets.LogDialog;
 import com.sqlLogParser.shared.logs.Log;
 
 import java.util.List;
@@ -174,7 +175,13 @@ public class SqlLogParser implements EntryPoint {
                 public void onSuccess(String s)
                 {
 
-                    Window.alert(s);
+                    LogDialog myDialog = new LogDialog(s);
+
+                    int left = Window.getClientWidth()/ 2;
+                    int top = Window.getClientHeight()/ 2;
+                    myDialog.setPopupPosition(left, top);
+
+                    myDialog.show();
                 }
             });
         }
