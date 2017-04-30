@@ -76,6 +76,12 @@ public class LogParser
 
     public static List<String> getParamValuesFrom(Log log)
     {
+
+        if(!log.getContent().contains("params="))
+        {
+            return new ArrayList<>();
+        }
+
         String params = log.getContent()
                 .replaceFirst("(.*)params=", "") // Remove Everything before params=
                 .replaceAll("\\[", "")  // Remove all left square brackets
@@ -89,6 +95,11 @@ public class LogParser
 
     public static List<String> getParamTypesFrom(Log log)
     {
+        if(!log.getContent().contains("params="))
+        {
+            return new ArrayList<>();
+        }
+
         String params = log.getContent()
                 .replaceFirst("(.*)params=", "") // Remove Everything before params=
                 .replaceAll("\\[", "")  // Remove all left square brackets
