@@ -1,6 +1,7 @@
 package com.sqlLogParser.server.rpc.logs;
 
 import com.sqlLogParser.shared.logs.Log;
+import com.sqlLogParser.shared.params.Parameter;
 import com.sqlLogParser.shared.params.ParameterType;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class LogParser
         String query = log.getContent();
 
         // Get param list
-        List<String> params = getParamsFrom(log);
+        List<String> params = getParamValuesFrom(log);
 
         // Remove everything before SELECT/UPDATE ETC
         query = trimToQuery(query);
@@ -43,7 +44,37 @@ public class LogParser
         return log.replaceFirst(".*\\s+(?=DELETE |UPDATE |SELECT |INSERT )", "");
     }
 
-    public static List<String> getParamsFrom(Log log)
+
+    public static List<Parameter> getParamsFrom(Log log)
+    {
+        List<String> paramValues = getParamValuesFrom(log);
+        List<String> paramTypes = getParamTypesFrom(log);
+        List<Parameter> params = new ArrayList<>();
+        Parameter parameter;
+
+        for(int i=0; i< paramValues.size(); i++)
+        {
+            parameter = new Parameter();
+            parameter.setValue(paramValues.get(i));
+
+            if(paramTypes.get(i).equals("String"))
+            {
+                parameter.setType(ParameterType.STRING);
+            }
+
+            else
+            {
+                parameter.setType(ParameterType.OTHER);
+            }
+
+            params.add(parameter);
+        }
+
+        return params;
+    }
+
+
+    public static List<String> getParamValuesFrom(Log log)
     {
         String params = log.getContent()
                 .replaceFirst("(.*)params=", "") // Remove Everything before params=

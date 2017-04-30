@@ -5,23 +5,23 @@ package com.sqlLogParser.shared.params;
  */
 public class Parameter
 {
-    private String parameter;
+    private String value;
     private ParameterType type;
 
 
     public Parameter() {}
 
     public Parameter(String parameter, ParameterType type) {
-        this.parameter = parameter;
+        this.value = parameter;
         this.type = type;
     }
 
-    public String getParameter() {
-        return parameter;
+    public String getValue() {
+        return value;
     }
 
-    public void setParameter(String parameter) {
-        this.parameter = parameter;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public ParameterType getType() {
@@ -30,5 +30,23 @@ public class Parameter
 
     public void setType(ParameterType type) {
         this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Parameter parameter = (Parameter) o;
+
+        if (!value.equals(parameter.value)) return false;
+        return type == parameter.type;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = value.hashCode();
+        result = 31 * result + type.hashCode();
+        return result;
     }
 }

@@ -1,6 +1,8 @@
 package com.sqlLogParser.shared.logs;
 
 import com.sqlLogParser.server.rpc.logs.LogParser;
+import com.sqlLogParser.shared.params.Parameter;
+import com.sqlLogParser.shared.params.ParameterType;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,7 +19,7 @@ public class LogParserTest
 {
 
     @Test
-    public void getParamsFrom() throws Exception
+    public void getParamValuesFrom() throws Exception
     {
 
         Log log1 = new Log(
@@ -26,7 +28,7 @@ public class LogParserTest
         );
 
         List<String> log1paramsExpected = Arrays.asList("1300053803");
-        List<String> log1paramsActual = LogParser.getParamsFrom(log1);
+        List<String> log1paramsActual = LogParser.getParamValuesFrom(log1);
 
         Assert.assertTrue(log1paramsActual.size() == log1paramsExpected.size());
         Assert.assertTrue(log1paramsActual.containsAll(log1paramsExpected));
@@ -39,7 +41,7 @@ public class LogParserTest
         );
 
         List<String> log2paramsExpected = Arrays.asList("1328126930", "0");
-        List<String> log2paramsActual = LogParser.getParamsFrom(log2);
+        List<String> log2paramsActual = LogParser.getParamValuesFrom(log2);
 
         Assert.assertTrue(log2paramsActual.size() == log2paramsExpected.size());
         Assert.assertTrue(log2paramsActual.containsAll(log2paramsExpected));
@@ -76,6 +78,56 @@ public class LogParserTest
         Assert.assertTrue(paramTypesExpected.size() == paramTypesActual.size());
         Assert.assertTrue(paramTypesExpected.containsAll(paramTypesActual));
 
+        logBody = "SELECT * FROM USER WHERE ID = ? AND NAME = ? [params=(long) 1328126930, (String) jacob]";
+        paramTypesExpected = Arrays.asList("long", "String");
+        paramTypesActual = LogParser.getParamTypesFrom(new Log(0, logBody));
+
+        Assert.assertNotNull(paramTypesActual);
+        Assert.assertEquals("long", paramTypesActual.get(0));
+        Assert.assertEquals("String", paramTypesActual.get(1));
+        Assert.assertTrue(paramTypesExpected.size() == paramTypesActual.size());
+        Assert.assertTrue(paramTypesExpected.containsAll(paramTypesActual));
+
+    }
+
+    @Test
+    public void getParamsFrom() throws Exception
+    {
+
+        Log log;
+        String logBody;
+        List<Parameter> paramsExpected;
+        List<Parameter> paramsActual;
+
+
+        logBody = "289968  TRACE  [btpool0-0] kodo.jdbc.SQL blablabla ? [params=(long) 1300053803]";
+        paramsExpected = new ArrayList<>();
+        paramsExpected.add(new Parameter("1300053803", ParameterType.OTHER));
+        paramsActual = LogParser.getParamsFrom(new Log(0, logBody));
+
+        Assert.assertNotNull(paramsActual);
+        Assert.assertTrue(paramsExpected.get(0).equals(paramsActual.get(0)));
+
+
+        logBody ="DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]";
+        paramsExpected = new ArrayList<>();
+        paramsExpected.add(new Parameter("1328126930", ParameterType.OTHER));
+        paramsExpected.add(new Parameter("0", ParameterType.OTHER));
+        paramsActual = LogParser.getParamsFrom(new Log(0, logBody));
+
+        Assert.assertNotNull(paramsActual);
+        Assert.assertTrue(paramsExpected.get(0).equals(paramsActual.get(0)));
+        Assert.assertTrue(paramsExpected.get(1).equals(paramsActual.get(1)));
+
+        logBody ="SELECT * FROM USER WHERE ID = ? AND NAME = ? [params=(long) 1328126930, (String) jacob]";
+        paramsExpected = new ArrayList<>();
+        paramsExpected.add(new Parameter("1328126930", ParameterType.OTHER));
+        paramsExpected.add(new Parameter("jacob", ParameterType.STRING));
+        paramsActual = LogParser.getParamsFrom(new Log(0, logBody));
+
+        Assert.assertNotNull(paramsActual);
+        Assert.assertTrue(paramsExpected.get(0).equals(paramsActual.get(0)));
+        Assert.assertTrue(paramsExpected.get(1).equals(paramsActual.get(1)));
     }
 
 
@@ -166,7 +218,7 @@ public class LogParserTest
         );
 
 
-        List<String> log1params= LogParser.getParamsFrom(log1);
+        List<String> log1params= LogParser.getParamValuesFrom(log1);
 
         Assert.assertEquals(
                 " '1300053803' [params=(long) 1300053803]",
@@ -179,16 +231,12 @@ public class LogParserTest
                 "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]"
         );
 
-        List<String> log2params= LogParser.getParamsFrom(log2);
+        List<String> log2params= LogParser.getParamValuesFrom(log2);
 
         Assert.assertEquals(
                 "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = '1328126930' AND LAST_UPDATE = '0' [params=(long) 1328126930, (int) 0]",
                 LogParser.replacePlaceholdersWithParams(log2.getContent(), log2params));
 
-
     }
-
-
-
 
 }
