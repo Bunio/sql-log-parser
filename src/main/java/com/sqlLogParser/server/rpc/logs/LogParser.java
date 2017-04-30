@@ -17,8 +17,6 @@ import java.util.regex.Pattern;
 
 public class LogParser
 {
-    private static Logger logger = Logger.getLogger("LOG PARSER");
-
     public static String parse(Log log)
     {
 

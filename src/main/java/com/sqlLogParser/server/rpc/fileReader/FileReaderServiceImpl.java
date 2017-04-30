@@ -18,16 +18,10 @@ import java.util.logging.Logger;
  */
 public class FileReaderServiceImpl extends RemoteServiceServlet implements FileReaderService
 {
-
-    private static Logger logger = Logger.getLogger("FILE READER");
-
     @Override
     public ArrayList<Log> getLogsFromFile(String path)
     {
-
         ArrayList<Log> logs = new ArrayList<Log>();
-
-        logger.log(Level.INFO, "Loading file: " + path);
 
         try
         {
@@ -49,16 +43,13 @@ public class FileReaderServiceImpl extends RemoteServiceServlet implements FileR
 
         catch (FileNotFoundException ex)
         {
-            logger.log(Level.INFO, "File not found! ");
+            // Handle FileNotFoundException
         }
 
         catch (Exception ex)
         {
-            logger.log(Level.INFO, "Other exception... ");
+            // Handle other exceptions
         }
-
-        logger.log(Level.INFO, " Done !");
-        logger.log(Level.INFO, " Total logs: " + logs.size());
 
         return logs;
     }

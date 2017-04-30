@@ -18,9 +18,8 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
-public class SqlLogParser implements EntryPoint {
-
-    private static Logger logger = Logger.getLogger("FILE READER");
+public class SqlLogParser implements EntryPoint
+{
 
     private Log selectedLog;
     private TextBox fileNameTextBox;
