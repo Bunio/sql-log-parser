@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040a08a-d387-4635-92f8-079d96e3511a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/war/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/war/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mySampleApplication/MySampleApplication.gwt.xml" afterPath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/MySampleApplication.gwt.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mySampleApplication/client/MyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/client/MyService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mySampleApplication/client/MyServiceAsync.java" afterPath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/client/MyServiceAsync.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mySampleApplication/client/SqlLogParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/client/SqlLogParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mySampleApplication/server/rpc/MyServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/MyServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/war/MySampleApplication.css" afterPath="$PROJECT_DIR$/war/SqlLogParser.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/war/MySampleApplication.html" afterPath="$PROJECT_DIR$/war/SqlLogParser.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logFile" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,8 +29,8 @@
       <file leaf-file-name="SqlLogParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/client/SqlLogParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+            <state relative-caret-position="425">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -424,6 +416,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PROGRAMOWANIE\GWT\sql-log-parser" />
       <recent name="D:\PROGRAMOWANIE\GWT\sql-log-parser\src\main\java\com" />
     </key>
   </component>
@@ -864,12 +857,12 @@
       <workItem from="1493480551456" duration="1239000" />
       <workItem from="1493483251267" duration="110000" />
       <workItem from="1493547284450" duration="4307000" />
-      <workItem from="1493552618131" duration="360000" />
+      <workItem from="1493552618131" duration="454000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6016000" />
+    <option name="totallyTimeSpent" value="6110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -884,7 +877,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2497309" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1172,8 +1165,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/client/SqlLogParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        <state relative-caret-position="425">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
