@@ -25,7 +25,7 @@ public class LogParser
         String query = log.getContent();
 
         // Get param list
-        List<String> params = getParamValuesFrom(log);
+        List<Parameter> params = getParamsFrom(log);
 
         // Remove everything before SELECT/UPDATE ETC
         query = trimToQuery(query);
@@ -125,11 +125,13 @@ public class LogParser
         return  log.replaceFirst("\\[params=(.*)", "");
     }
 
-    public static String replacePlaceholdersWithParams(String log, List<String> params)
+    public static String replacePlaceholdersWithParams(String log, List<Parameter> params)
     {
-        for(String param : params)
+        for(Parameter param : params)
         {
-            log = log.replaceFirst("\\?", "'" + param + "'");
+            log = param.getType() == ParameterType.STRING ?
+                    log.replaceFirst("\\?", "'" + param.getValue() + "'") :
+                    log.replaceFirst("\\?",  param.getValue());
         }
 
         return log;
