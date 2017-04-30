@@ -9,7 +9,10 @@ import com.sqlLogParser.client.rpc.fileReader.FileReaderService;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderServiceAsync;
 import com.sqlLogParser.shared.logs.Log;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -21,6 +24,7 @@ public class SqlLogParser implements EntryPoint {
      * This is the entry point method.
      */
 
+    private static Logger logger = Logger.getLogger("FILE READER");
 
     public void onModuleLoad()
     {

@@ -22,10 +22,10 @@ public class FileReaderImpl extends RemoteServiceServlet implements FileReaderSe
     private static Logger logger = Logger.getLogger("FILE READER");
 
     @Override
-    public List<Log> getLogsFromFile(String path)
+    public ArrayList<Log> getLogsFromFile(String path)
     {
 
-        List<Log> logs = new ArrayList<Log>();
+        ArrayList<Log> logs = new ArrayList<Log>();
 
         logger.log(Level.INFO, "Loading file: " + path);
 
