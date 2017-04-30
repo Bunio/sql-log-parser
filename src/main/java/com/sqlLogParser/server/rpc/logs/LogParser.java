@@ -19,7 +19,7 @@ public class LogParser
 {
     private static Logger logger = Logger.getLogger("LOG PARSER");
 
-    public static String parseQuery(Log log)
+    public static String parse(Log log)
     {
 
         String query = log.getContent();

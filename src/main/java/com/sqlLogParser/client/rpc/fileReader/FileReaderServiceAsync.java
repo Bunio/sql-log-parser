@@ -12,4 +12,5 @@ import java.util.List;
 public interface FileReaderServiceAsync
 {
     public void getLogsFromFile(String path, AsyncCallback<List<Log>> callback);
+    public void parseLog(Log log, AsyncCallback<String> callback);
 }

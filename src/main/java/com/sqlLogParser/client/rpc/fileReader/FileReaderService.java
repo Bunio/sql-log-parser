@@ -15,4 +15,5 @@ import java.util.List;
 public interface FileReaderService extends RemoteService
 {
     public List<Log> getLogsFromFile(String path);
+    public String parseLog(Log log);
 }

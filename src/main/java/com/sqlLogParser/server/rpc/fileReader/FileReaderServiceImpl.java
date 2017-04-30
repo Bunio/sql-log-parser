@@ -2,13 +2,13 @@ package com.sqlLogParser.server.rpc.fileReader;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderService;
+import com.sqlLogParser.server.rpc.logs.LogParser;
 import com.sqlLogParser.shared.logs.Log;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,7 +28,6 @@ public class FileReaderServiceImpl extends RemoteServiceServlet implements FileR
         ArrayList<Log> logs = new ArrayList<Log>();
 
         logger.log(Level.INFO, "Loading file: " + path);
-
 
         try
         {
@@ -58,12 +57,14 @@ public class FileReaderServiceImpl extends RemoteServiceServlet implements FileR
             logger.log(Level.INFO, "Other exception... ");
         }
 
-
-
         logger.log(Level.INFO, " Done !");
         logger.log(Level.INFO, " Total logs: " + logs.size());
 
         return logs;
     }
 
+    @Override
+    public String parseLog(Log log) {
+        return LogParser.parse(log);
+    }
 }

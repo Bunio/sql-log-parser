@@ -18,32 +18,34 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
-/**
- * Entry point classes define <code>onModuleLoad()</code>
- */
 public class SqlLogParser implements EntryPoint {
 
-    /**
-     * This is the entry point method.
-     */
-
     private static Logger logger = Logger.getLogger("FILE READER");
+
     private Log selectedLog;
+    private TextBox filenameTf;
+    private Button loadFileBt;
+
 
     public void onModuleLoad()
     {
+        addTextfields();
+        addButtons();
+    }
 
-        TextBox filenameTf = new TextBox();
-        TextBox result = new TextBox();
-        Button loadFileBt = new Button("load file");
+    private void addTextfields()
+    {
+        filenameTf = new TextBox();
+        RootPanel.get("slot1").add(filenameTf);
+    }
 
-
-
+    private void addButtons()
+    {
+        loadFileBt = new Button("load file");
 
         loadFileBt.addClickHandler(e ->
         {
             FileReaderServiceAsync fileReader = GWT.create(FileReaderService.class);
-
             fileReader.getLogsFromFile(filenameTf.getText(), new AsyncCallback<List<Log>>()
             {
                 @Override
@@ -55,58 +57,77 @@ public class SqlLogParser implements EntryPoint {
                 @Override
                 public void onSuccess(List<Log> logs)
                 {
-                    CellTable<Log> cellTable = new CellTable<>();
-                    cellTable.setKeyboardSelectionPolicy(HasKeyboardSelectionPolicy.KeyboardSelectionPolicy.ENABLED);
-
-                    TextColumn<Log> indexColumn = new TextColumn<Log>() {
-                        @Override
-                        public String getValue(Log log) {
-                            return Long.toString(log.getId());
-                        }
-                    };
-
-                    TextColumn<Log> logColumn = new TextColumn<Log>() {
-                        @Override
-                        public String getValue(Log log) {
-                            return log.getContent();
-                        }
-                    };
-
-                    cellTable.addColumn(indexColumn, "id");
-                    cellTable.addColumn(logColumn, "log");
-
-
-                    SingleSelectionModel<Log> selectionModel = new SingleSelectionModel<>();
-                    cellTable.setSelectionModel(selectionModel);
-
-                    selectionModel.addSelectionChangeHandler(e ->
-                    {
-                       selectedLog = selectionModel.getSelectedObject();
-
-                       if(selectedLog != null)
-                       {
-                           Window.alert("LOG " + LogParser.parseQuery(selectedLog));
-                       }
-
-                    });
-
-                    cellTable.setRowCount(logs.size());
-                    cellTable.setRowData(logs);
-
-                    VerticalPanel panel = new VerticalPanel();
-                    panel.setBorderWidth(1);
-                    panel.setWidth("100%");
-                    panel.add(cellTable);
-
-                    RootPanel.get().add(panel);
+                    displayLogTable(logs);
                 }
             });
 
         });
 
-        RootPanel.get("slot1").add(filenameTf);
         RootPanel.get("slot2").add(loadFileBt);
+    }
 
+    public void displayLogTable(List<Log> logs)
+    {
+        CellTable<Log> cellTable = new CellTable<>();
+        cellTable.setKeyboardSelectionPolicy(HasKeyboardSelectionPolicy.KeyboardSelectionPolicy.ENABLED);
+
+        TextColumn<Log> indexColumn = new TextColumn<Log>() {
+            @Override
+            public String getValue(Log log) {
+                return Long.toString(log.getId());
+            }
+        };
+
+        TextColumn<Log> logColumn = new TextColumn<Log>() {
+            @Override
+            public String getValue(Log log) {
+                return log.getContent();
+            }
+        };
+
+        cellTable.addColumn(indexColumn, "id");
+        cellTable.addColumn(logColumn, "log");
+
+        SingleSelectionModel<Log> selectionModel = new SingleSelectionModel<>();
+        cellTable.setSelectionModel(selectionModel);
+
+        selectionModel.addSelectionChangeHandler(e ->
+        {
+            selectedLog = selectionModel.getSelectedObject();
+
+            if(selectedLog != null)
+            {
+                displayParsedLog(selectedLog);
+            }
+
+        });
+
+        cellTable.setRowCount(logs.size());
+        cellTable.setRowData(logs);
+
+        VerticalPanel panel = new VerticalPanel();
+        panel.setBorderWidth(1);
+        panel.setWidth("100%");
+        panel.add(cellTable);
+
+        RootPanel.get().add(panel);
+    }
+
+    private void displayParsedLog(Log selectedLog)
+    {
+        FileReaderServiceAsync fileReader = GWT.create(FileReaderService.class);
+        fileReader.parseLog(selectedLog, new AsyncCallback<String>() {
+            @Override
+            public void onFailure(Throwable throwable) {
+                Window.alert("COULD NOT PARSE THIS LOG");
+            }
+
+            @Override
+            public void onSuccess(String s)
+            {
+                Window.alert(s);
+            }
+        });
     }
 
 }
