@@ -22,7 +22,7 @@ public class LogParserTest
 
         Log log1 = new Log(
                 0,
-                "289968  TRACE  [btpool0-0] kodo.jdbc.SQL - <t 10272075, conn 18292272> [29 ms] executing prepstmnt 11854753 SELECT t0.NUMBER_RANGE_TYPE, t0.LAST_UPDATE FROM TESTSOFT.TB_NUMBERING_RANGE t0 WHERE t0.ID = ? [params=(long) 1300053803]"
+                "289968  TRACE  [btpool0-0] kodo.jdbc.SQL blablabla ? [params=(long) 1300053803]"
         );
 
         List<String> log1paramsExpected = Arrays.asList("1300053803");
@@ -35,7 +35,7 @@ public class LogParserTest
 
         Log log2 = new Log(
                 0,
-                "294517  TRACE  [btpool0-0] kodo.jdbc.SQL - <t 10272075, conn 18292272> [0 ms] batching prepstmnt 15649338 DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]"
+                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]"
         );
 
         List<String> log2paramsExpected = Arrays.asList("1328126930", "0");
@@ -46,7 +46,37 @@ public class LogParserTest
 
     }
 
-    
+    @Test
+    public void replacePlaceholdersWithParams() throws Exception
+    {
+        Log log1 = new Log(
+            0,
+            " ? [params=(long) 1300053803]"
+        );
+
+        List<String> log1params= LogParser.getParamsFrom(log1);
+
+        Assert.assertEquals(
+                " '1300053803' [params=(long) 1300053803]",
+                LogParser.replacePlaceholdersWithParams(log1.getContent(), log1params));
+
+
+
+
+        Log log2 = new Log(
+                0,
+                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]"
+        );
+
+        List<String> log2params= LogParser.getParamsFrom(log2);
+
+        Assert.assertEquals(
+                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = '1328126930' AND LAST_UPDATE = '0' [params=(long) 1328126930, (int) 0]",
+                LogParser.replacePlaceholdersWithParams(log2.getContent(), log2params));
+
+
+    }
+
 
 
     /*Test

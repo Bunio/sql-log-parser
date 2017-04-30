@@ -85,7 +85,7 @@ public class SqlLogParser implements EntryPoint {
 
                        if(selectedLog != null)
                        {
-                           Window.alert("LOG " + LogParser.parseLog(selectedLog));
+                           Window.alert("LOG " + LogParser.parseQuery(selectedLog));
                        }
 
                     });

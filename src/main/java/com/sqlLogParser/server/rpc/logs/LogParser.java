@@ -14,38 +14,56 @@ public class LogParser
 {
     private static Logger logger = Logger.getLogger("LOG PARSER");
 
-    public static String parseLog(Log log)
+    public static String parseQuery(Log log)
     {
+        //TO DO
 
-        String resoult = log.getContent();
+        String query = log.getContent();
 
-        resoult = getQueryFromLog(resoult);
+        // Remove everything before SELECT/UPDATE ETC
 
-        return resoult;
+        // Get param list
+
+        List<String> params = getParamsFrom(log);
+
+        // Remove params
+
+        // Replace question marks with params
+
+        query = replacePlaceholdersWithParams(query, params);
+
+        // Return
+
+        return "TODO";
     }
 
     public static List<String> getParamsFrom(Log log)
     {
         String params = log.getContent()
-                .replaceFirst("(.*)params=", "")
-                .replaceAll("\\[", "")
-                .replaceAll("]", "")
-                .replaceAll("\\(.*?\\)", "")
-                .replaceAll("\\s+", "")
+                .replaceFirst("(.*)params=", "") // Remove Everything before params=
+                .replaceAll("\\[", "")  // Remove all left square brackets
+                .replaceAll("]", "")    // Remove all right square brackets
+                .replaceAll("\\(.*?\\)", "") // Remove everything inside brackets
+                .replaceAll("\\s+", "") // Remove all whitespace characters
                 .trim();
 
         return Arrays.asList(params.split(","));
     }
 
-    public static String replacePlaceholdersWithParams(List<String> params)
+    public static String cutParamsFrom(String log)
     {
-        return "lol";
+        return  "";
     }
 
-    private static String getQueryFromLog(Log log)
+    public static String replacePlaceholdersWithParams(String log, List<String> params)
     {
-        return log.getContent().replaceFirst("(.*)SELECT","SELECT");
-    }
 
+        for(String param : params)
+        {
+            log = log.replaceFirst("\\?", "'" + param + "'");
+        }
+
+        return log;
+    }
 
 }
