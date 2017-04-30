@@ -2,10 +2,9 @@ package com.sqlLogParser.server.rpc.fileReader;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderService;
-import com.sqlLogParser.logs.Log;
+import com.sqlLogParser.shared.logs.Log;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;

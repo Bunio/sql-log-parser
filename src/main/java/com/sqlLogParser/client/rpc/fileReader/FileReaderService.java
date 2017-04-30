@@ -2,7 +2,7 @@ package com.sqlLogParser.client.rpc.fileReader;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
-import com.sqlLogParser.logs.Log;
+import com.sqlLogParser.shared.logs.Log;
 import java.util.List;
 
 /**

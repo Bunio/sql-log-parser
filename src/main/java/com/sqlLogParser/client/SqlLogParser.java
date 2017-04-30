@@ -5,13 +5,11 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
-import com.sqlLogParser.client.rpc.MyService;
-import com.sqlLogParser.client.rpc.MyServiceAsync;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderService;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderServiceAsync;
+import com.sqlLogParser.shared.logs.Log;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 
 
 /**
@@ -36,7 +34,7 @@ public class SqlLogParser implements EntryPoint {
         {
             FileReaderServiceAsync fileReader = GWT.create(FileReaderService.class);
 
-            fileReader.fileToString(filenameTf.getText(), new AsyncCallback<String>()
+            fileReader.getLogsFromFile(filenameTf.getText(), new AsyncCallback<List<Log>>()
             {
                 @Override
                 public void onFailure(Throwable throwable)
@@ -45,7 +43,7 @@ public class SqlLogParser implements EntryPoint {
                 }
 
                 @Override
-                public void onSuccess(String s)
+                public void onSuccess(List<Log> logs)
                 {
                 }
             });

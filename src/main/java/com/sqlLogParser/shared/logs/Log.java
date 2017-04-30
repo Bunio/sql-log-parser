@@ -1,4 +1,4 @@
-package com.sqlLogParser.logs;
+package com.sqlLogParser.shared.logs;
 
 /**
  * Created by Jakub on 30.04.2017.

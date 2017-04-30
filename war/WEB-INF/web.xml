@@ -4,9 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-
-
-
     <servlet>
         <servlet-name>fileReaderImpl</servlet-name>
         <servlet-class>
@@ -17,19 +14,6 @@
     <servlet-mapping>
         <servlet-name>fileReaderImpl</servlet-name>
         <url-pattern>/SqlLogParser/FileReaderService</url-pattern>
-    </servlet-mapping>
-
-
-    <servlet>
-        <servlet-name>myServiceImpl</servlet-name>
-        <servlet-class>
-            com.sqlLogParser.server.rpc.MyServiceImpl
-        </servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>myServiceImpl</servlet-name>
-        <url-pattern>/SqlLogParser/MyService</url-pattern>
     </servlet-mapping>
 
 </web-app>

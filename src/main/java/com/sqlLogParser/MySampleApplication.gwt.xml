@@ -6,6 +6,7 @@
     <inherits name='com.google.gwt.user.User'/>
     <inherits name="com.google.gwt.logging.Logging"/>
 
+
     <!-- Logging properties                                   -->
     <set-property name="gwt.logging.logLevel" value="SEVERE"/>          # To change the  default logLevel
     <set-property name="gwt.logging.enabled" value="TRUE"/>            # To disable logging
@@ -14,4 +15,6 @@
     <!-- Specify the app entry point class.                   -->
     <entry-point class='com.sqlLogParser.client.SqlLogParser'/>
 
+    <source path='shared'/>
+    <source path='client'/>
 </module>

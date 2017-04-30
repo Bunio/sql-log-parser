@@ -1,7 +1,7 @@
 package com.sqlLogParser.client.rpc.fileReader;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.sqlLogParser.logs.Log;
+import com.sqlLogParser.shared.logs.Log;
 import java.util.List;
 
 /**
