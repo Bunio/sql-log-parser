@@ -12,6 +12,8 @@ import com.google.gwt.view.client.SingleSelectionModel;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderService;
 import com.sqlLogParser.client.rpc.fileReader.FileReaderServiceAsync;
 import com.sqlLogParser.shared.logs.Log;
+import com.sqlLogParser.shared.logs.LogParser;
+
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -26,6 +28,7 @@ public class SqlLogParser implements EntryPoint {
      */
 
     private static Logger logger = Logger.getLogger("FILE READER");
+    private Log selectedLog;
 
     public void onModuleLoad()
     {
@@ -78,12 +81,13 @@ public class SqlLogParser implements EntryPoint {
 
                     selectionModel.addSelectionChangeHandler(e ->
                     {
-                       Log selected = selectionModel.getSelectedObject();
+                       selectedLog = selectionModel.getSelectedObject();
 
-                       if(selected != null)
+                       if(selectedLog != null)
                        {
-                           Window.alert("LOG " + selected.getContent());
+                           Window.alert("LOG " + LogParser.parseLog(selectedLog));
                        }
+
                     });
 
                     cellTable.setRowCount(logs.size());
