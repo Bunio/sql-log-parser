@@ -36,7 +36,7 @@ public class SqlLogParser implements EntryPoint {
         {
             FileReaderServiceAsync fileReader = GWT.create(FileReaderService.class);
 
-            fileReader.fileToString(filenameTf.toString(), new AsyncCallback<String>()
+            fileReader.fileToString(filenameTf.getText(), new AsyncCallback<String>()
             {
                 @Override
                 public void onFailure(Throwable throwable)
@@ -47,8 +47,6 @@ public class SqlLogParser implements EntryPoint {
                 @Override
                 public void onSuccess(String s)
                 {
-
-                    Window.alert("SUCESS. RESULT: " + s);
                 }
             });
 
