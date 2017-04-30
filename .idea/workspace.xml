@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040a08a-d387-4635-92f8-079d96e3511a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,7 +31,7 @@
       <file leaf-file-name="LogParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
+            <state relative-caret-position="220">
               <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -46,8 +45,8 @@
       <file leaf-file-name="LogParserTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="134" column="4" lean-forward="false" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
+            <state relative-caret-position="292">
+              <caret line="109" column="16" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1084,23 +1083,11 @@
       <workItem from="1493547284450" duration="4307000" />
       <workItem from="1493552618131" duration="590000" />
       <workItem from="1493553224052" duration="9475000" />
-      <workItem from="1493564637937" duration="11480000" />
+      <workItem from="1493564637937" duration="11897000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LogParserTest - 2017.04.30 at 20h 20m 40s.xml">
-      <configuration name="LogParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LogParserTest - 2017.04.30 at 20h 20m 55s.xml">
-      <configuration name="LogParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LogParserTest - 2017.04.30 at 20h 21m 15s.xml">
-      <configuration name="LogParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LogParserTest - 2017.04.30 at 20h 21m 49s.xml">
-      <configuration name="LogParserTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LogParserTest - 2017.04.30 at 20h 22m 16s.xml">
       <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
@@ -1119,9 +1106,21 @@
     <history-entry file="LogParserTest - 2017.04.30 at 20h 29m 25s.xml">
       <configuration name="LogParserTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 32m 20s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 32m 55s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 33m 39s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LogParserTest - 2017.04.30 at 20h 36m 41s.xml">
+      <configuration name="LogParserTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27201000" />
+    <option name="totallyTimeSpent" value="27618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1477,9 +1476,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/war/logFile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="210" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sqlLogParser/server/rpc/logs/LogParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="220">
           <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1489,18 +1496,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/war/logFile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="210" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/sqlLogParser/shared/logs/LogParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="134" column="4" lean-forward="false" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
+        <state relative-caret-position="292">
+          <caret line="109" column="16" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

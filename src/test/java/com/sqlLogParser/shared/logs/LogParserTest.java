@@ -47,58 +47,29 @@ public class LogParserTest
     }
 
     @Test
-    public void replacePlaceholdersWithParams() throws Exception
-    {
-        Log log1 = new Log(
-            0,
-            " ? [params=(long) 1300053803]"
-        );
-
-        List<String> log1params= LogParser.getParamsFrom(log1);
-
-        Assert.assertEquals(
-                " '1300053803' [params=(long) 1300053803]",
-                LogParser.replacePlaceholdersWithParams(log1.getContent(), log1params));
-
-
-
-
-        Log log2 = new Log(
-                0,
-                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]"
-        );
-
-        List<String> log2params= LogParser.getParamsFrom(log2);
-
-        Assert.assertEquals(
-                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = '1328126930' AND LAST_UPDATE = '0' [params=(long) 1328126930, (int) 0]",
-                LogParser.replacePlaceholdersWithParams(log2.getContent(), log2params));
-
-
-    }
-
-    @Test
     public void cutParamsFrom() throws Exception
     {
-        Log log1 = new Log(
-                0,
-                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]"
-        );
 
-        Assert.assertEquals(
-                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? ",
-                LogParser.cutParamsFrom(log1.getContent())
-        );
+        String log;
+        String expected;
+        String actual;
 
-        Log log2 = new Log(
-                0,
-                " ? [params=(long) 1300053803]"
-        );
 
-        Assert.assertEquals(
-                " ? ",
-                LogParser.cutParamsFrom(log2.getContent())
-        );
+        log = "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]";
+        expected = "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? ";
+        actual = LogParser.cutParamsFrom(log);
+        Assert.assertEquals(expected,actual);
+
+        log = "? [params=(long) 1300053803]\"";
+        expected = "? ";
+        actual = LogParser.cutParamsFrom(log);
+        Assert.assertEquals(expected,actual);
+
+        log = "?? what a nice test";
+        expected = "?? what a nice test";
+        actual = LogParser.cutParamsFrom(log);
+        Assert.assertEquals(expected,actual);
+
     }
 
     @Test
@@ -132,6 +103,39 @@ public class LogParserTest
         Assert.assertEquals(expected, actual);
 
     }
-    
+
+    @Test
+    public void replacePlaceholdersWithParams() throws Exception
+    {
+        Log log1 = new Log(
+            0,
+            " ? [params=(long) 1300053803]"
+        );
+
+
+        List<String> log1params= LogParser.getParamsFrom(log1);
+
+        Assert.assertEquals(
+                " '1300053803' [params=(long) 1300053803]",
+                LogParser.replacePlaceholdersWithParams(log1.getContent(), log1params));
+
+
+
+        Log log2 = new Log(
+                0,
+                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = ? AND LAST_UPDATE = ? [params=(long) 1328126930, (int) 0]"
+        );
+
+        List<String> log2params= LogParser.getParamsFrom(log2);
+
+        Assert.assertEquals(
+                "DELETE FROM TESTSOFT.TB_RESOURCE WHERE ID = '1328126930' AND LAST_UPDATE = '0' [params=(long) 1328126930, (int) 0]",
+                LogParser.replacePlaceholdersWithParams(log2.getContent(), log2params));
+
+
+    }
+
+
+
 
 }
