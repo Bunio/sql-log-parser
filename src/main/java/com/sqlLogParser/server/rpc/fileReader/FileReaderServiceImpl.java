@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 /**
  * Created by Jakub on 30.04.2017.
  */
-public class FileReaderImpl extends RemoteServiceServlet implements FileReaderService
+public class FileReaderServiceImpl extends RemoteServiceServlet implements FileReaderService
 {
 
     private static Logger logger = Logger.getLogger("FILE READER");

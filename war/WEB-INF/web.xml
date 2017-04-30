@@ -7,7 +7,7 @@
     <servlet>
         <servlet-name>fileReaderImpl</servlet-name>
         <servlet-class>
-            com.sqlLogParser.server.rpc.fileReader.FileReaderImpl
+            com.sqlLogParser.server.rpc.fileReader.FileReaderServiceImpl
         </servlet-class>
     </servlet>
 
